@@ -1,18 +1,13 @@
 package com.netherbyte.nbl4j;
 
-import static java.lang.System.exit;
-
-@Deprecated
-public class LoggerManager {
+public class Loggers {
     /**
      * Creates a new logger instance
      * @param name Name of the logger instance
      * @return Logger instance
-     * @deprecated Use Loggers.get()
-     * @since 1.0
+     * @since 1.1
      */
-    @Deprecated
-    public static Logger getLogger(String name) {
+    public static Logger get(String name) {
         return new SimpleLogger(name);
     }
 }
