@@ -17,11 +17,34 @@ public interface Logger {
     public void setTerminateMethod(IntConsumer consumer);
 
     /**
+     * Prints a message to the console
+     * @param channel Channel to print in
+     * @param x The message to print
+     * @since 1.2
+     */
+    public void log(Channel channel, String x);
+
+    /**
      * Prints a message to the DEBUG channel
      * @param x The message to log
      * @since 1.0
      */
     public void debug(String x);
+
+    /**
+     * Traces a message to the DEBUG channel
+     * @param x The message to log
+     * @since 1.2
+     */
+    public void trace(String x);
+
+    /**
+     * Traces a message to the provided channel
+     * @param x The message to log
+     * @param channel The channel to log in
+     * @since 1.2
+     */
+    public void trace(String x, Channel channel);
 
     /**
      * Prints a message to the INFO channel
