@@ -8,6 +8,10 @@ public class Main {
         method2();
     }
     public static void method2() {
-        logger.trace("Test!", Channel.ERROR);
+        logger.debug(1);
+        logger.info(2);
+        logger.warn(3);
+        logger.error(4);
+        logger.critical(5);
     }
 }

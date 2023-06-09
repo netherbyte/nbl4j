@@ -3,6 +3,7 @@ package com.netherbyte.nbl4j;
 import java.util.Arrays;
 import java.util.function.IntConsumer;
 
+import static com.netherbyte.nbl4j.AnsiCodes.*;
 import static java.lang.System.*;
 
 public record SimpleLogger(String name) implements Logger {
@@ -22,9 +23,9 @@ public record SimpleLogger(String name) implements Logger {
         switch (channel) {
             case DEBUG -> out.println("[" + name + "/DEBUG] " + x);
             case INFO -> out.println("[" + name + "/INFO] " + x);
-            case WARN -> out.println("[" + name + "/WARN] " + x);
-            case ERROR -> err.println("[" + name + "/ERROR] " + x);
-            case CRITICAL -> err.println("[" + name + "/CRITICAL] " + x);
+            case WARN -> out.println(YELLOW + "[" + name + "/WARN] " + x + RESET);
+            case ERROR -> out.println(RED + "[" + name + "/ERROR] " + x + RESET);
+            case CRITICAL -> out.println(RED_BACKGROUND + "[" + name + "/CRITICAL] " + x + RESET);
         }
     }
 
@@ -69,7 +70,7 @@ public record SimpleLogger(String name) implements Logger {
     @Override
     public <T> void critical(T x) {
         log(Channel.CRITICAL, String.valueOf(x));
-        exit(1);
+        terminateMethod.accept(1);
     }
 
     @Override
