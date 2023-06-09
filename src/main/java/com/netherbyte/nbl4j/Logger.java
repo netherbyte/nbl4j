@@ -29,14 +29,14 @@ public interface Logger {
      * @param x The message to log
      * @since 1.0
      */
-    public void debug(String x);
+    public <T> void debug(T x);
 
     /**
      * Traces a message to the DEBUG channel
      * @param x The message to log
      * @since 1.2
      */
-    public void trace(String x);
+    public <T> void trace(T x);
 
     /**
      * Traces a message to the provided channel
@@ -44,35 +44,35 @@ public interface Logger {
      * @param channel The channel to log in
      * @since 1.2
      */
-    public void trace(String x, Channel channel);
+    public <T> void trace(T x, Channel channel);
 
     /**
      * Prints a message to the INFO channel
      * @param x The message to log
      * @since 1.0
      */
-    public void info(String x);
+    public <T> void info(T x);
 
     /**
      * Prints a message to the WARN channel
      * @param x The message to log
      * @since 1.0
      */
-    public void warn(String x);
+    public <T> void warn(T x);
 
     /**
      * Prints a message to the ERROR channel
      * @param x The message to log
      * @since 1.0
      */
-    public void error(String x);
+    public <T> void error(T x);
 
     /**
      * Prints a message to the CRITICAL channel and stops the program
      * @param x The message to log
      * @since 1.0
      */
-    public void critical(String x);
+    public <T> void critical(T x);
 
     /**
      * Prints a message to the CRITICAL channel and stops the program
@@ -80,5 +80,5 @@ public interface Logger {
      * @param code The program exit code
      * @since 1.1
      */
-    public void critical(String x, int code);
+    public <T> void critical(T x, int code);
 }

@@ -1,5 +1,6 @@
 package com.netherbyte.nbl4j;
 
+import java.util.Arrays;
 import java.util.function.IntConsumer;
 
 import static java.lang.System.*;
@@ -28,46 +29,52 @@ public record SimpleLogger(String name) implements Logger {
     }
 
     @Override
-    public void debug(String message) {
-        log(Channel.DEBUG, message);
+    public <T> void debug(T x) {
+        log(Channel.DEBUG, String.valueOf(x));
     }
 
     @Override
-    public void trace(String x) {
-        final String cls = x.getClass().getName();
-        log(Channel.DEBUG, cls + ": " + x);
+    public <T> void trace(T x) {
+        StackTraceElement[] stes = Thread.currentThread().getStackTrace();
+        log(Channel.DEBUG, "Begin stack trace");
+        for (int i = 2; i < stes.length; i++)
+            log(Channel.DEBUG, String.valueOf(stes[i]));
+        log(Channel.DEBUG, String.valueOf(x));
     }
 
     @Override
-    public void trace(String x, Channel channel) {
-        final String cls = x.getClass().getName();
-        log(channel, cls + ": " + x);
+    public <T> void trace(T x, Channel channel) {
+        StackTraceElement[] stes = Thread.currentThread().getStackTrace();
+        log(channel, "Begin stack trace");
+        for (int i = 2; i < stes.length; i++)
+            log(channel, String.valueOf(stes[i]));
+        log(channel, String.valueOf(x));
     }
 
     @Override
-    public void info(String message) {
-        log(Channel.INFO, message);
+    public <T> void info(T x) {
+        log(Channel.INFO, String.valueOf(x));
     }
 
     @Override
-    public void warn(String message) {
-        log(Channel.WARN, message);
+    public <T> void warn(T x) {
+        log(Channel.WARN, String.valueOf(x));
     }
 
     @Override
-    public void error(String message) {
-        log(Channel.ERROR, message);
+    public <T> void error(T x) {
+        log(Channel.ERROR, String.valueOf(x));
     }
 
     @Override
-    public void critical(String message) {
-        log(Channel.CRITICAL, message);
+    public <T> void critical(T x) {
+        log(Channel.CRITICAL, String.valueOf(x));
         exit(1);
     }
 
     @Override
-    public void critical(String message, int code) {
-        log(Channel.CRITICAL, message);
+    public <T> void critical(T x, int code) {
+        log(Channel.CRITICAL, String.valueOf(x));
         terminateMethod.accept(code);
     }
 }
