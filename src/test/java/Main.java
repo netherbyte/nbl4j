@@ -1,9 +1,9 @@
-import com.netherbyte.nbl4j.Channel;
 import com.netherbyte.nbl4j.Logger;
-import com.netherbyte.nbl4j.Loggers;
+import com.netherbyte.nbl4j.LoggerFactory;
 
 public class Main {
-    private static final Logger logger = Loggers.get("Test");
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
         method2();
     }
@@ -12,6 +12,6 @@ public class Main {
         logger.info(2);
         logger.warn(3);
         logger.error(4);
-        logger.critical(5);
+        logger.trace(5);
     }
 }

@@ -1,4 +1,4 @@
-package com.netherbyte.nbl4j;
+package com.netherbyte.nbl4j.format;
 
 public class AnsiCodes {
     public static final String RESET = "\033[0m";  // Text Reset

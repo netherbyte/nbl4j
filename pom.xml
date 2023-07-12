@@ -6,21 +6,35 @@
 
     <groupId>com.netherbyte</groupId>
     <artifactId>nbl4j</artifactId>
-    <version>1.2.2</version>
+    <version>2.0.0-alpha.1</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <distributionManagement>
+        <!-- ... Some other Distribution repository definitions -->
+
         <repository>
-            <id>github</id>
-            <name>GitHub netherbyte Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/netherbyte/nbl4j</url>
+            <id>repsy</id>
+            <name>SidGames5/netherbyte</name>
+            <url>https://repo.repsy.io/mvn/sidgames5/netherbyte</url>
         </repository>
+
+        <!-- ... Some other Distribution repository definitions -->
     </distributionManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20230227</version>
+        </dependency>
+
+    </dependencies>
 
 
 </project>

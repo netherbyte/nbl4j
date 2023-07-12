@@ -1,28 +1,19 @@
 package com.netherbyte.nbl4j;
 
-import java.util.function.IntConsumer;
-
 public interface Logger {
     /**
      * @return Name of the logger instance
      * @since 1.0
      */
-    public String getLoggerName();
-
-    /**
-     * Sets the method to run when the program needs to terminate
-     * @param consumer
-     * @since 1.1
-     */
-    public void setTerminateMethod(IntConsumer consumer);
+    public String getName();
 
     /**
      * Prints a message to the console
-     * @param channel Channel to print in
+     * @param level Channel to print in
      * @param x The message to print
      * @since 1.2
      */
-    public void log(Channel channel, String x);
+    public void log(Level level, String x);
 
     /**
      * Prints a message to the DEBUG channel
@@ -41,10 +32,10 @@ public interface Logger {
     /**
      * Traces a message to the provided channel
      * @param x The message to log
-     * @param channel The channel to log in
+     * @param level The channel to log in
      * @since 1.2
      */
-    public <T> void trace(T x, Channel channel);
+    public <T> void trace(T x, Level level);
 
     /**
      * Prints a message to the INFO channel
@@ -66,19 +57,4 @@ public interface Logger {
      * @since 1.0
      */
     public <T> void error(T x);
-
-    /**
-     * Prints a message to the CRITICAL channel and stops the program
-     * @param x The message to log
-     * @since 1.0
-     */
-    public <T> void critical(T x);
-
-    /**
-     * Prints a message to the CRITICAL channel and stops the program
-     * @param x The message to log
-     * @param code The program exit code
-     * @since 1.1
-     */
-    public <T> void critical(T x, int code);
 }

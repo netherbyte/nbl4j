@@ -1,0 +1,10 @@
+{
+  "minLevel": "DEBUG",
+  "format": "[%HH:%mm:%ss] [%t/%level] (%logger) %message",
+  "colors": {
+    "debug": "GRAY",
+    "info": "WHITE",
+    "warn": "YELLOW",
+    "error": "RED"
+  }
+}
